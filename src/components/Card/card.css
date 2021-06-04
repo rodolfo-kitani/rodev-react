@@ -1,0 +1,9 @@
+.card-box {
+    width: 30%;
+    padding: 8px 8px;
+    /* max-width: 300px; */
+}
+
+.card-box img{
+    width: 100%;
+}
