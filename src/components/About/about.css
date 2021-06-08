@@ -1,0 +1,35 @@
+/* About */
+
+.about-title {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.about {
+display: flex;
+padding: 0 16px;
+}
+
+.about .description {
+padding-right: 16px;
+}
+
+.about img{
+    border-radius: 50%;
+}
+
+.tecno-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.tecno-list li{
+    margin: 6px 6px;
+    padding: 10px 10px;
+    color: lightslategrey;
+    font-weight: 600;
+}

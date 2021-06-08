@@ -1,12 +1,15 @@
 header {
-    background-color: #f8f9fa;
 }
 
 header nav {
     display: flex;
     align-items: center;
-    justify-content: start;
+    /* justify-content: start; */
+    background-color: #f8f9fa;
     padding: 10px 10px;
+    position: fixed;
+    right: 0;
+    left: 0;
 }
 
 header nav ul{

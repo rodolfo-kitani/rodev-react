@@ -1,9 +1,38 @@
+// import { useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
+
+import './banner-img.jpg';
+
 import Header from './components/Header';
 import Card from './components/Card';
-import bannerImg from './banner-img.jpg';
+import About from './components/About';
+import Footer from './components/Footer';
+
+import tecnoList from './services/filter';
+import workList from './services/workList';
 
 function App() {
+  const [search, setSearch] = useState("");
+  const [works, setWorks] = useState(workList);
+
+  // function filter() {
+  //   console.log(workList.tech)
+  //   const listFilter = workList.filter(function (work) {
+  //     return work.tech.toLowerCase().indexOf(search.toLowerCase()) >= 0;
+  //   })
+  //   setWorks(listFilter);
+  // }
+
+  function filter() {
+    const listFilter = workList.filter((work)=>{
+      return work.tech.indexOf(search) >= 0;
+    })
+    // console.log();
+    setWorks(listFilter);
+    // console.log(search)
+  }
+
   return (
     <>
       <Header />
@@ -21,35 +50,36 @@ function App() {
         <h2>Portfolio</h2>
       </div>
       <div className='filter'>
-        <input type="text" name="filter" id="filter"/>
+        <input
+        type="text"
+        placeholder="Filtro por tecnologia"
+        input={search}
+        onChange={(event)=>{
+          setSearch(event.target.value);
+          }}
+        // onSubmit={filter()}
+        // onKeyUp={(event)=>{(event.key === "Enter") ? console.log("FOI") : null}}
+        />
+          <button className="btn" onClick={filter}>
+            Pesquisar
+          </button>
       </div>
       <div className='filter'>
-          <button>Node</button>
-          <button>Node</button>
-          <button>Node</button>
-          <button>Node</button>
-          <button>Node</button>
-          <button>Node</button>
+        { tecnoList.map( function(item) {
+          return (
+            <button key={item}>{item}</button>
+          )
+        })
+        }
       </div>
       <div className='cards-tab'>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
+        { works.map(function(item) {
+          return <Card key={item.id} workList={item}/>
+
+        }) }
       </div>
-      <footer>
-        <div>Desenvolvido por Rodolfo Santana</div>
-        <div className='links'>
-          <ul>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Git</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer">Youtube</a></li>
-          </ul>
-        </div>
-      </footer>
+      <About tecnoList={tecnoList} />
+      <Footer/>
     </>
   );
 }
