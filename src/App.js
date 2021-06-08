@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
 
@@ -17,10 +16,6 @@ import workList from './services/workList';
 function App() {
   const [search, setSearch] = useState('');
   const [works, setWorks] = useState(workList);
-  const [activeBtn, setBtn] = useState([]);
-  const filterBox = document.getElementById('filter-box');
-
-  useEffect(() => {},[])
 
   function lookup(oi){
     return oi.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
@@ -97,7 +92,6 @@ function App() {
       <div className='cards-tab'>
         { works.map(function(item) {
           return <Card key={item.id} workList={item}/>
-
         }) }
       </div>
       <About tecnoList={tecnoList}/>
