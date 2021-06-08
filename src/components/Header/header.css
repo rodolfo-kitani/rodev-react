@@ -33,3 +33,9 @@ li a{
 h2 {
     padding-right: 10px;
 }
+
+header a{
+    padding-top: 40px;
+    margin-top: -40px;
+    display: inline-block; /* required for webkit browsers */
+}

@@ -3,6 +3,7 @@ import './about.css'
 function About(props) {
     return (
         <div>
+            <span className="anchor" id="about"></span>
             <h2 className="about-title">Sobre</h2>
             <div className="about">
                 <div className="description">

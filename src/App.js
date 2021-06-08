@@ -1,4 +1,4 @@
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
 
@@ -9,33 +9,47 @@ import Card from './components/Card';
 import About from './components/About';
 import Footer from './components/Footer';
 
+import FilterButton from './components/FilterButton';
+
 import tecnoList from './services/filter';
 import workList from './services/workList';
 
 function App() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [works, setWorks] = useState(workList);
+  const [activeBtn, setBtn] = useState([]);
+  const filterBox = document.getElementById('filter-box');
 
-  // function filter() {
-  //   console.log(workList.tech)
-  //   const listFilter = workList.filter(function (work) {
-  //     return work.tech.toLowerCase().indexOf(search.toLowerCase()) >= 0;
-  //   })
-  //   setWorks(listFilter);
-  // }
+  useEffect(() => {},[])
+
+  function lookup(oi){
+    return oi.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
+  }
 
   function filter() {
+    const listFilter = workList.filter( lookup )
+    if(search) {
+      return setWorks(listFilter)
+    } else {
+      setWorks(workList)
+    }
+  }
+
+  function filterBtn(search) {
     const listFilter = workList.filter((work)=>{
-      return work.tech.indexOf(search) >= 0;
+      return work.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
     })
-    // console.log();
-    setWorks(listFilter);
-    // console.log(search)
+    if(search) {
+      return setWorks(listFilter)
+    } else {
+      setWorks(workList)
+    }
   }
 
   return (
     <>
       <Header />
+      <span className='anchor' id='home'></span>
       <div className='banner'>
         <h1>Rodolfo Santana</h1>
         <h2>Full Stack Developer</h2>
@@ -47,30 +61,38 @@ function App() {
         </div>
       </div>
       <div className='section-title'>
+        <span className='anchor' id="portfolio"></span>
         <h2>Portfolio</h2>
       </div>
       <div className='filter'>
         <input
+        id="filter-box"
         type="text"
         placeholder="Filtro por tecnologia"
         input={search}
         onChange={(event)=>{
           setSearch(event.target.value);
           }}
-        // onSubmit={filter()}
-        // onKeyUp={(event)=>{(event.key === "Enter") ? console.log("FOI") : null}}
+        onKeyPress={(event)=>{
+          if(event.key === "Enter"){return filter()}
+        }}
         />
           <button className="btn" onClick={filter}>
             Pesquisar
           </button>
       </div>
-      <div className='filter'>
-        { tecnoList.map( function(item) {
+      <div className='filter' >
+        {/* { tecnoList.map( function(item) {
           return (
             <button key={item}>{item}</button>
           )
         })
-        }
+        } */}
+
+        { tecnoList.map( function(item){
+          return <FilterButton key={item} onChange={filterBtn}>{item}</FilterButton>
+        })}
+
       </div>
       <div className='cards-tab'>
         { works.map(function(item) {
@@ -78,7 +100,7 @@ function App() {
 
         }) }
       </div>
-      <About tecnoList={tecnoList} />
+      <About tecnoList={tecnoList}/>
       <Footer/>
     </>
   );

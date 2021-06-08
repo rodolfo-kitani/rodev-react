@@ -12,7 +12,9 @@ function Card(props) {
                 <li>Heroku</li>
                 <li>Git</li>
             </ul> */}
-            <img src={props.workList.img} alt={props.workList.title} />
+            <a href={props.workList.url} target="_blank" rel="noopener noreferrer">
+                <img src={props.workList.img} alt={props.workList.title} />
+            </a>
             <div className="card-title">{props.workList.title}</div>
             <div className="card-description">{props.workList.description}</div>
             <ul>
