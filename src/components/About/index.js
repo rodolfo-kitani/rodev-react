@@ -5,23 +5,34 @@ function About(props) {
         <div>
             <span className="anchor" id="about"></span>
             <h2 className="about-title">Sobre</h2>
+
             <div className="about">
                 <div className="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repellat iusto velit, quo perspiciatis, quam consectetur aut sunt eligendi cupiditate adipisci aspernatur? Veritatis laboriosam sit, laborum beatae sint tenetur soluta!
+                    <div className="my-photo">
+                        <img src="./foto-linkedin.jpg" alt="Rodolfo Santana" />
+
+                    </div>
+                    <div className="text">
+                        Olá, me chamo Rodolfo Santana, sou um desenvolvedor web full stack. Tenho 35 anos e sou de São Paulo - SP.
+                    </div>
+
+                    <div className="text">
+                        Tenho formação em desenvolvimento web pela Digital House. E antes de iniciar minha transição de carreira, atuava como empresário organizando eventos e cursos.
+
+                        Me orgulho de realizar um evento presencial para mais de 3 mil pessoas com participação de Chris Gardner, de ter escalado o Monte Fuji e das pessoas incríveis que conheci e tenho o prazer de conviver.
+                        <div>
+                        <h3 className="about-title">Tecnologias</h3>
+                        <ul className="tecno-list">
+                            {props.tecnoList.map((item)=>{return (<li key={item}>{item}</li>)})}
+                        </ul>           
+                        </div>
+
+                    </div>
+
                 </div>
-                <div className="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repellat iusto velit, quo perspiciatis, quam consectetur aut sunt eligendi cupiditate adipisci aspernatur? Veritatis laboriosam sit, laborum beatae sint tenetur soluta!
-                </div>
-                <div className="my-photo">
-                    <img src="https://www.rodev.com.br/src/foto-linkedin.jpg" alt="Rodolfo Santana" />
-                </div>
+
             </div>
-            <div>
-                <h3 className="about-title">Tecnologias</h3>
-                <ul className="tecno-list">
-                    {props.tecnoList.map((item)=>{return (<li key={item}>{item}</li>)})}
-                </ul>           
-            </div>
+
         </div>
     );
 }

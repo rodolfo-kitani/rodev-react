@@ -5,15 +5,15 @@ const tecnoList = [
     'Express',
     'API',
     'MySQL',
-    'MongoDB',
+    // 'MongoDB',
     'Sequelize',
     'Git',
-    'Téc Ágeis',
-    'Scrum',
+    // 'Téc Ágeis',
+    // 'Scrum',
     'Kanban',
     'HTML',
     'CSS',
-    'Bootsrap'
+    'Bootstrap',
 ];
 
 export default tecnoList;

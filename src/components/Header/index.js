@@ -7,7 +7,7 @@ function Header () {
           <h2><a href="/">Rodolfo</a></h2>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a className="anchor" href="#portfolio">Portfolio</a></li>
+            <li><a className="anchor" href="#portfolio">Portfólio</a></li>
             <li><a href="#about">Sobre</a></li>
           </ul>
         </nav>

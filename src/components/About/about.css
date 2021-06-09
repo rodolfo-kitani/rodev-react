@@ -7,16 +7,41 @@
 }
 
 .about {
-display: flex;
-padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 16px;
 }
 
 .about .description {
-padding-right: 16px;
+    padding-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 25px 25px;
+}
+
+.about .text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 6px 6%;
+    margin: 0 20%;
+}
+
+.my-photo {
+    margin: 10px 10px;
+    padding: 10px 10px;
 }
 
 .about img{
     border-radius: 50%;
+
 }
 
 .tecno-list {
@@ -25,6 +50,7 @@ padding-right: 16px;
     justify-content: center;
     flex-wrap: wrap;
     list-style: none;
+    margin-bottom: 5%;
 }
 
 .tecno-list li{
