@@ -73,7 +73,7 @@ const workList = [
     {
         id: 5,
         active: true,
-        img: './rsz_thumb-clinicaMedica.jpg',
+        img: './rsz_thumb-clinicamedica.jpg',
         imgAlt: '',
         title: 'medicalClinic',
         description: 'Sistema de administração de uma pequena clínica médica, construído em Node e Express e possui CRUD com banco de dados MySQL. Projeto desenvolvido durante o curso de Full Stack da Digital House.',
