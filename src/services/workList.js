@@ -18,7 +18,7 @@ const workList = [
     {
         id: 2,
         active: true,
-        img: './rsz_thumb-market-place.png',
+        img: './rsz_thumb-market-place.jpg',
         imgAlt: '',
         title: 'Store c/ CRUD',
         description: 'Market place para locação de eletrônicos. Projeto com CRUD utilizando MySQL como database. Realizado em grupo como trabalho de conclusão.',
@@ -92,7 +92,7 @@ const workList = [
     {
         id: 6,
         active: true,
-        img: './rsz_thumb-convite.png',
+        img: './rsz_thumb-convite.jpg',
         imgAlt: '',
         title: 'Casamento Lorem e Mussum Impsum',
         description: 'Site de convite de casamento, feito em modelo hackathon como projeto final para o curso Frontend Web Developer da Cel.lep & Facebook Estação Hack.',
@@ -108,7 +108,7 @@ const workList = [
     {
         id: 7,
         active: true,
-        img: './rsz_thumb-cra.png',
+        img: './rsz_thumb-cra.jpg',
         imgAlt: '',
         title: 'CRA - React',
         description: 'Pequeno projeto realizado em React para aplicar o conceito de components.',
@@ -138,7 +138,7 @@ const workList = [
     {
         id: 9,
         active: true,
-        img: './rsz_thumb-mind-care2.png',
+        img: './rsz_thumb-mind-care2.jpg',
         imgAlt: '',
         title: 'Mind Care',
         description: 'Mind Care. Projeto de UI/UX. Portal feito para divulgar notícias e facilitar atendimentos com profissionais de saúde mental. Projeto realizado em grupo durante o curso UI/UX da Cel.lep & Facebook Estação Hack.',
@@ -152,7 +152,7 @@ const workList = [
     {
         id: 10,
         active: true,
-        img: './rsz_thumb-portfolio.png',
+        img: './rsz_thumb-portfolio.jpg',
         imgAlt: '',
         title: 'Portfolio MVP',
         description: 'Portfólio em HTML. Foi montado em HTML, CSS e Bootstrap. O versionamento foi feito pelo github, e a hospedagem foi feita pela Vercel. Foi criado utilizando o conceito de MVP.',
