@@ -91,9 +91,7 @@ function App() {
       </div>
       <div className='cards-tab'>
         { works.map(function(item) {
-          if(item.active) {
             return <Card key={item.id} workList={item}/>
-          }
         }) }
       </div>
       <About tecnoList={tecnoList}/>
