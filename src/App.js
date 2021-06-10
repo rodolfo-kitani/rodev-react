@@ -57,7 +57,7 @@ function App() {
       </div>
       <div className='section-title'>
         <span className='anchor' id="portfolio"></span>
-        <h2>Portfolio</h2>
+        <h2>Portfólio</h2>
       </div>
       <div className='filter'>
         <input
