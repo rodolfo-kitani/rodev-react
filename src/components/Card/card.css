@@ -1,11 +1,12 @@
 .card-box {
-    width: 30%;
-    padding: 8px 8px;
+    width: 33%;
+    padding: 8px 16px;
     /* max-width: 300px; */
 }
 
 .card-box img{
     width: 100%;
+    flex-grow: 1;
 }
 
 .card-title {
@@ -22,4 +23,16 @@
 .card-box ul li{
     color: lightslategrey;
     font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .card-box {
+        width: 50%;
+    }
+}
+
+@media (max-width: 550px) {
+    .card-box {
+        width: 90%;
+    }
 }

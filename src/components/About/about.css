@@ -59,3 +59,16 @@
     color: lightslategrey;
     font-weight: 600;
 }
+
+
+@media (max-width: 1024px) {
+    .about .text {
+        margin: 0 10%;
+    }
+}
+
+@media (max-width: 575px) {
+    .about .text {
+        margin: 0 0%;
+    }
+}
