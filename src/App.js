@@ -7,7 +7,6 @@ import Header from './components/Header';
 import Card from './components/Card';
 import About from './components/About';
 import Footer from './components/Footer';
-
 import FilterButton from './components/FilterButton';
 
 import tecnoList from './services/filter';
@@ -15,10 +14,16 @@ import workList from './services/workList';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [works, setWorks] = useState(workList);
+  const [works, setWorks] = useState(workList.slice(0,6));
 
-  function lookup(oi){
-    return oi.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
+  function showMoreWorks() {
+    if(works.length <= 6) {
+      setWorks(workList)
+    }
+  }
+
+  function lookup(item){
+    return item.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
   }
 
   function filter() {
@@ -77,24 +82,28 @@ function App() {
           </button>
       </div>
       <div className='filter' >
-        {/* { tecnoList.map( function(item) {
-          return (
-            <button key={item}>{item}</button>
-          )
-        })
-        } */}
-
         { tecnoList.map( function(item){
           return <FilterButton key={item} onChange={filterBtn}>{item}</FilterButton>
         })}
-
       </div>
       <div className='cards-tab'>
         { works.map(function(item) {
             return <Card key={item.id} workList={item}/>
         }) }
       </div>
+      
+      { works.length <=6 ? (
+          <div className='load-more-works'>
+            <button onClick={ showMoreWorks }>
+                Mostrar mais trabalhos
+            </button>
+          </div>
+        )
+        : null
+      }}
+      
       <About tecnoList={tecnoList}/>
+
       <Footer/>
     </>
   );
