@@ -71,7 +71,7 @@ function App() {
         <h1>Rodolfo Santana</h1>
         <h2>Full Stack Developer</h2>
         <div className='intro-text'>
-          Olá sou um Desenvolvedor Web Full Stack Jr.
+          Olá sou um Desenvolvedor Web Full Stack
         </div>
         <div className='intro-text'>
           tenho grande interesse em programação, tecnologia e mercado financeiro.
