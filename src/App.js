@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 import './banner-img.jpg';
@@ -10,39 +10,56 @@ import Footer from './components/Footer';
 import FilterButton from './components/FilterButton';
 
 import tecnoList from './services/filter';
-import workList from './services/workList';
+import axios from "axios";
+
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_API_URL;
 
 function App() {
   const [search, setSearch] = useState('');
-  const [works, setWorks] = useState(workList.slice(0,6));
+  const [works, setWorks] = useState([])
+  const [filterWords, setFilterWorks] = useState([]);
+
+  async function getWorkList() {
+    axios.get(BACKEND_API_URL)
+      .then((response) => {
+        setWorks(response.data);
+        setFilterWorks(response.data.slice(0, 6));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    getWorkList();
+
+  }, []);
 
   function showMoreWorks() {
-    if(works.length <= 6) {
-      setWorks(workList)
-    }
+    setFilterWorks(works)
   }
 
   function lookup(item){
     return item.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
   }
 
-  function filter() {
-    const listFilter = workList.filter( lookup )
+  function filterItem() {
+    const listFilter = works.filter( lookup )
     if(search) {
-      return setWorks(listFilter)
+      return setFilterWorks(listFilter)
     } else {
-      setWorks(workList)
+      setFilterWorks(works)
     }
   }
 
   function filterBtn(search) {
-    const listFilter = workList.filter((work)=>{
+    const listFilter = works.filter((work)=>{
       return work.tech.toString().toLowerCase().indexOf(search.toLowerCase()) >= 0;
     })
     if(search) {
-      return setWorks(listFilter)
+      return setFilterWorks(listFilter)
     } else {
-      setWorks(workList)
+      setFilterWorks(works)
     }
   }
 
@@ -74,10 +91,10 @@ function App() {
           setSearch(event.target.value);
           }}
         onKeyPress={(event)=>{
-          if(event.key === "Enter"){return filter()}
+          if(event.key === "Enter"){return filterItem()}
         }}
         />
-          <button className="btn" onClick={filter}>
+          <button className="btn" onClick={filterItem}>
             Pesquisar
           </button>
       </div>
@@ -87,16 +104,17 @@ function App() {
         })}
       </div>
       <div className='cards-tab'>
-        { works.map(function(item) {
-            return <Card key={item.id} workList={item}/>
-        }) }
+        { Array.isArray(filterWords) ?
+          filterWords.map((work) => {
+              return <Card key={work.order} workList={work} />
+            })
+          : <p>Carregando...</p>
+        }
       </div>
       
-      { works.length <=6 ? (
+      { works.length >=6 ? (
           <div className='load-more-works'>
-            <button onClick={ showMoreWorks }>
-                Mostrar mais trabalhos
-            </button>
+            <button className='load-more-works-button' onClick={() => showMoreWorks()}>Mostrar mais</button>
           </div>
         )
         : null
